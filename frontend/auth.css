@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.auth-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(0,255,255,0.07), transparent 20%),
+    radial-gradient(circle at bottom right, rgba(0,255,255,0.05), transparent 20%),
+    linear-gradient(135deg, #081523, #0a1627, #09121f);
+}
+
+/* Updated with pointer-events: none to prevent click-blocking */
+.auth-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 55px 55px;
+}
+
+/* Updated with overflow: hidden to contain borders safely */
+.auth-card {
+  width: 420px;
+  min-height: 560px;
+  padding: 45px 35px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+  background: rgba(14, 22, 36, 0.92);
+  border: 2px solid rgba(0,255,255,0.4);
+  box-shadow:
+    0 0 12px rgba(0,255,255,0.45),
+    0 0 28px rgba(0,255,255,0.35),
+    0 0 60px rgba(0,255,255,0.18);
+  overflow: hidden;
+}
+
+/* Updated with pointer-events: none and z-index: 0 to sit behind content */
+.auth-card::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(0,255,255,0.18);
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Added to force inputs, labels, and text fields over the decorative pseudo-element */
+.auth-card * {
+  position: relative;
+  z-index: 5;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.shield {
+  font-size: 28px;
+  color: cyan;
+}
+
+.brand span {
+  font-size: 34px;
+  color: white;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 12px !important;
+  color: #98a6b7 !important;
+  margin-top: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+.auth-card h2 {
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 28px;
+  font-size: 42px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 16px;
+  background: rgba(10, 18, 30, 0.95);
+  border: 1.8px solid rgba(0,255,255,0.45);
+  border-radius: 10px;
+  color: white;
+  outline: none;
+  font-size: 15px;
+  transition: 0.25s;
+}
+
+.input-box input:focus {
+  border-color: cyan;
+  box-shadow: 0 0 12px rgba(0,255,255,0.35);
+}
+
+.input-box span {
+  position: absolute;
+  right: 12px;
+  top: 16px;
+  cursor: pointer;
+}
+
+/* Updated with high stacking index priority to receive immediate clicks */
+button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 35px;
+  background: linear-gradient(90deg, #22f2ff, #14d9ff);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  font-size: 15px;
+  position: relative;
+  z-index: 10;
+}
+
+button:hover {
+  box-shadow: 0 0 18px cyan;
+}
+
+.forgot {
+  text-align: center;
+  margin-top: 24px;
+  color: #b9c5d0;
+}
+
+.switch-mode {
+  text-align: center;
+  margin-top: 18px;
+  color: #b9c5d0;
+}
+
+.switch-mode span {
+  color: cyan;
+  cursor: pointer;
+  font-weight: bold;
+}
